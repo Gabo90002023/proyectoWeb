@@ -58,6 +58,7 @@
     font-weight: 700;
     line-height: 1.25;
     margin-bottom: 1.5rem;
+    color: white;
   }
   
   .hero-highlight {
@@ -66,7 +67,7 @@
   
   .hero-subtitle {
     font-size: 1.125rem;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2rem;
     max-width: 32rem;
   }
