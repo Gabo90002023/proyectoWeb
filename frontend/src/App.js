@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './Navegadores/Header/Header';
+import Footer from './Navegadores/Footer/Footer';
 function App() {
   return (
-    <div className="Header"><Header /></div>
-
+    <>
+      <div className="Header"><Header /></div>
+      {/* <div className="Footer"><Footer /></div> */}
+    </>
+    
     /*<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
