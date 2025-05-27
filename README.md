@@ -91,7 +91,8 @@ cp .env.example .env
 # Para migrar la base de datos creada en laravel a mysql o mariaDB
 php artisan migrate
 
-
+# Para eliminar la base de datos
+php artisan db:wipe
 
 
 #GESTION DE PREGUNTAR BD ENTIDADES
