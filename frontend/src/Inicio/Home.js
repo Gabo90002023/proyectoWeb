@@ -1,6 +1,9 @@
 import React from 'react'
 import './Home.css';
+import { NavLink } from 'react-router-dom';
+
 const Home = () => {
+
   return (
     <div>
       
@@ -11,9 +14,6 @@ const Home = () => {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-left">
-            <div className="hero-badge">
-              <span>Lanzamiento Nuevo</span>
-            </div>
             <h1 className="hero-title">
               Crea quizzes <span className="hero-highlight">interactivos</span> en minutos
             </h1>
@@ -21,19 +21,12 @@ const Home = () => {
               BlueQuizz te permite crear, compartir y analizar cuestionarios interactivos para educación, marketing o entretenimiento.
             </p>
             <div className="hero-buttons">
-              <button className="btn-primary">
-                Comenzar Gratis
-              </button>
-              <button className="btn-secondary">Ver Demo</button>
+              <NavLink to="/ViewPreguntas" className="btn-primary">
+                Comenzar
+              </NavLink>
+              
             </div>
-            <div className="hero-users">
-              <div className="avatars">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="avatar" />
-                ))}
-              </div>
-              <p className="hero-note">+1,000 creadores ya están usando BlueQuizz</p>
-            </div>
+            
           </div>
 
           <div className="hero-right">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MenuIcon, XIcon } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
@@ -28,11 +29,25 @@ function Header() {
           </span>
         </div>
 
-        {/* Desktop navigation */}
+        {/* Desktop navigation
+        <NavLink to="/Admin/Registro/Ambientes" className="butn butn-nuevo">
+              Nuevo Ambiente<FaPlus className="icon" />
+            </NavLink>
+        */}
         <nav className="header__nav">
-          <a href="#features" className="header__link">Características</a>
-          <a href="#how-it-works" className="header__link">Cómo Funciona</a>
-          <a href="#pricing" className="header__link">Precios</a>
+          <NavLink to="/" className="header__link">
+              Inicio
+          </NavLink>
+          <NavLink to="./ListaPreguntas" className="header__link">
+              Lista de Preguntas
+          </NavLink>
+          <NavLink to="./Ayuda" className="header__link">
+              Como Funciona
+          </NavLink>
+          <NavLink to="./Niveles" className="header__link">
+              Niveles
+          </NavLink>
+          
         </nav>
 
         <div className="header__actions">
