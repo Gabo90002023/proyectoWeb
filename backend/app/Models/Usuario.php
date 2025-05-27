@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class usuario extends Model
+class Usuario extends Model
 {
-    use HasFactory;
+use HasFactory;
     protected $table = 'usuario';
     protected $primaryKey = 'id_usuario';
 
@@ -19,5 +19,4 @@ class usuario extends Model
         "area",
         "contraseña",
     ];
-    
 }
