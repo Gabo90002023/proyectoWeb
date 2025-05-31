@@ -29,11 +29,7 @@ function Header() {
           </span>
         </div>
 
-        {/* Desktop navigation
-        <NavLink to="/Admin/Registro/Ambientes" className="butn butn-nuevo">
-              Nuevo Ambiente<FaPlus className="icon" />
-            </NavLink>
-        */}
+        
         <nav className="header__nav">
           <NavLink to="/" className="header__link">
               Inicio
@@ -50,11 +46,6 @@ function Header() {
           
         </nav>
 
-        <div className="header__actions">
-          <button className="header__login-btn">Iniciar Sesión</button>
-          <button className="header__register-btn">Registrarse</button>
-        </div>
-
         {/* Mobile menu button */}
         <button className="header__mobile-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
@@ -65,13 +56,18 @@ function Header() {
       {mobileMenuOpen && (
         <div className="header__mobile-menu">
           <nav className="header__mobile-nav">
-            <a href="#features" className="header__mobile-link">Características</a>
-            <a href="#how-it-works" className="header__mobile-link">Cómo Funciona</a>
-            <a href="#pricing" className="header__mobile-link">Precios</a>
-            <div className="header__mobile-actions">
-              <button className="header__mobile-login">Iniciar Sesión</button>
-              <button className="header__mobile-register">Registrarse</button>
-            </div>
+             <NavLink to="/" className="header__link">
+              Inicio
+          </NavLink>
+          <NavLink to="./ListaPreguntas" className="header__link">
+              Lista de Preguntas
+          </NavLink>
+          <NavLink to="./Ayuda" className="header__link">
+              Como Funciona
+          </NavLink>
+          <NavLink to="./Niveles" className="header__link">
+              Niveles
+          </NavLink>            
           </nav>
         </div>
       )}
