@@ -1,65 +1,93 @@
-import React from 'react'
+import React, { useState } from "react"
+
 import './Home.css';
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
+import { Users, BookOpen, Award } from "lucide-react"
 
 const Home = () => {
+  const [isLogin, setIsLogin] = useState(true)
+  const [userType, setUserType] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
+  const handleAuth = () => {
+    if (userType === "Administrador") {      
+      window.location.href = "/VerAdmi"
+    }
+    else if (userType === "Profesor"){
+      window.location.href = "/VerPro"
+    }
+    else if (userType === "Estudiante") {
+      window.location.href = "/VerEst"
+    }
+  }
   return (
-    <div>
-      
-    <section className="hero-section">
-      <div className="hero-bg-left"></div>
-      <div className="hero-bg-right"></div>
-
-      <div className="container">
-        <div className="hero-grid">
-          <div className="hero-left">
-            <h1 className="hero-title">
-              Crea quizzes <span className="hero-highlight">interactivos</span> en minutos
-            </h1>
-            <p className="hero-subtitle">
-              BlueQuizz te permite crear, compartir y analizar cuestionarios interactivos para educación, marketing o entretenimiento.
+    
+    <div className="main-container">
+      <main className="main">
+        <div className="main-grid">
+          <div className="hero">
+            <p className="hero-title">
+              Plataforma de <span className="blue">Pensamiento</span> <br />
+              <span className="yellow">Computacional</span>
             </p>
-            <div className="hero-buttons">
-              <NavLink to="/ViewPreguntas" className="btn-primary">
-                Comenzar
-              </NavLink>
-              
+            <p className="hero-desc">
+              Desarrolla habilidades de programación y lógica computacional a través de desafíos interactivos.
+            </p>
+            <div className="hero-features">
+              <div><Users className="icon green" />3 tipos de usuarios</div>
+              <div><BookOpen className="icon green" />Editor dinámico</div>
+              <div><Award className="icon green" />Múltiples niveles</div>
             </div>
-            
           </div>
 
-          <div className="hero-right">
-            <div className="quiz-card-wrapper">
-              <div className="quiz-card">
-                <div className="quiz-header">
-                  <h3>Quiz: Conocimientos Generales</h3>
-                  <span className="quiz-live">En vivo</span>
-                </div>
-                <div className="quiz-question">
-                  <p className="question">¿Cuál es la capital de Francia?</p>
-                  <div className="answers">
-                    {['Londres', 'París', 'Berlín', 'Madrid'].map((option, idx) => (
-                      <button key={idx} className={option === 'París' ? 'answer correct' : 'answer'}>
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="quiz-footer">
-                  <span>2/10 preguntas</span>
-                  <button className="quiz-next">Siguiente</button>
-                </div>
-              </div>
-            </div>
-            <div className="quiz-glow-top"></div>
-            <div className="quiz-glow-bottom"></div>
+          <div className="auth-card">
+            <h3>{isLogin ? "Iniciar Sesión" : "Registrarse"}</h3>
+            <p>Accede a tu cuenta para comenzar</p>
+
+            <label>Tipo de Usuario</label>
+            <select value={userType} onChange={(e) => setUserType(e.target.value)}>
+              <option value="">Selecciona tu rol</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Profesor">Profesor</option>
+              <option value="Estudiante">Estudiante</option>
+            </select>
+
+            <label>Email</label>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="tu@email.com" />
+
+            <label>Contraseña</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" />
+
+            <button onClick={handleAuth}>{isLogin ? "Iniciar Sesión" : "Registrarse"}</button>
+
+            <p className="switch-auth">
+              {isLogin ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}
+              <span onClick={() => setIsLogin(!isLogin)}>{isLogin ? " Regístrate" : " Inicia sesión"}</span>
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+
+        <section id="features" className="features">
+          <h3>Características Principales</h3>
+          <div className="features-grid">
+            <div className="card">
+              <h4 className="blue">Editor Dinámico</h4>
+              <p>Los profesores pueden crear preguntas interactivas con contenido multimedia.</p>
+            </div>
+            <div className="card">
+              <h4 className="yellow">Múltiples Categorías</h4>
+              <p>Contenido adaptado para edades de 3 a 18 años.</p>
+            </div>
+            <div className="card">
+              <h4 className="green">Pensamiento Computacional</h4>
+              <p>Desarrolla habilidades de resolución de problemas, algoritmos y lógica.</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-    )
+  )
 }
 
 export default Home
