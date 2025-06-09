@@ -2,7 +2,7 @@ import './App.css';
 import { 
   Home, Header, Footer, Ayuda, Niveles, ListaPreguntas, CrearPreguntas,
   EditarPreguntas, VerPreguntas, VerUsuario, EditarUsuario, CrearUsuario,VistaAdministrador,
-  VistaEstudiante, VistaProfesor
+  VistaEstudiante, VistaProfesor, CrearPreguntaCK
   
 } from './imports';
 import { Routes, Route } from 'react-router-dom';
@@ -26,6 +26,7 @@ function App() {
         <Route path='/VerAdmi' element={<VistaAdministrador />} /> 
         <Route path='/VerEst' element={<VistaEstudiante />} /> 
         <Route path='/VerPro' element={<VistaProfesor />} /> 
+        <Route path='/CrearPreguntaCK' element={<CrearPreguntaCK />} /> 
 
       </Routes>
 

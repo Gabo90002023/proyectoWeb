@@ -16,8 +16,9 @@ import CrearUsuario from "./Administrador/CrearUsuario/CrearUsuario";
 import VistaEstudiante from "./Vistas/VistaEstudiante";
 import VistaAdministrador from "./Vistas/VistaAdministrador";
 import VistaProfesor from "./Vistas/VistaProfesor";
+import CrearPreguntaCK from "./Preguntas/CrearPreguntas/CrearPreguntaCK";
 export {
     Home,Header, Router, Routes, Route, Navigate,Footer,React,Ayuda,Niveles,ListaPreguntas,CrearPreguntas,
     EditarPreguntas,VerPreguntas,VerUsuario,EditarUsuario,CrearUsuario,VistaAdministrador,VistaEstudiante,
-    VistaProfesor
+    VistaProfesor, CrearPreguntaCK 
   };
