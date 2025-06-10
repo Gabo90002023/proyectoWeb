@@ -15,10 +15,7 @@ const Home = () => {
       window.location.href = "/VerAdmi"
     }
     else if (userType === "Profesor"){
-      window.location.href = "/VerPro"
-    }
-    else if (userType === "Estudiante") {
-      window.location.href = "/VerEst"
+      window.location.href = "/VerProfesor"
     }
   }
   return (
@@ -28,14 +25,14 @@ const Home = () => {
         <div className="main-grid">
           <div className="hero">
             <p className="hero-title">
-              Plataforma de <span className="blue">Pensamiento</span> <br />
+              Plataforma de <span className="blue">Desarrollo</span> <br />
               <span className="yellow">Computacional</span>
             </p>
             <p className="hero-desc">
-              Desarrolla habilidades de programación y lógica computacional a través de desafíos interactivos.
+              Desarrolla preguntas interactivas de programación y lógica computacional.
             </p>
             <div className="hero-features">
-              <div><Users className="icon green" />3 tipos de usuarios</div>
+              <div><Users className="icon green" />2 tipos de usuarios</div>
               <div><BookOpen className="icon green" />Editor dinámico</div>
               <div><Award className="icon green" />Múltiples niveles</div>
             </div>
@@ -50,7 +47,6 @@ const Home = () => {
               <option value="">Selecciona tu rol</option>
               <option value="Administrador">Administrador</option>
               <option value="Profesor">Profesor</option>
-              <option value="Estudiante">Estudiante</option>
             </select>
 
             <label>Email</label>
@@ -77,11 +73,11 @@ const Home = () => {
             </div>
             <div className="card">
               <h4 className="yellow">Múltiples Categorías</h4>
-              <p>Contenido adaptado para edades de 3 a 18 años.</p>
+              <p>Contenido se puede categorizar para edades de 3 a 18 años.</p>
             </div>
             <div className="card">
-              <h4 className="green">Pensamiento Computacional</h4>
-              <p>Desarrolla habilidades de resolución de problemas, algoritmos y lógica.</p>
+              <h4 className="green">Exportar tus preguntas</h4>
+              <p> Desarrolla tus preguntas intectivas y imprimelas en PDF.</p>
             </div>
           </div>
         </section>

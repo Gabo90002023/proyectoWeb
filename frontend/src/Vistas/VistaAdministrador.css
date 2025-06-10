@@ -5,16 +5,20 @@ body {
   font-family: sans-serif;
 }
 
-.container {
+.container-admi2 {
   max-width: 1200px;
   margin: auto;
   padding: 1rem;
 }
 
-.header {
+.header-admi {
   background-color: rgba(15, 23, 42, 0.95);
   border-bottom: 1px solid rgba(59, 130, 246, 0.2);
   padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  
 }
 
 .logo {

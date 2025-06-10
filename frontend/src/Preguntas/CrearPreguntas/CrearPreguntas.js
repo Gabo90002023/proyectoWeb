@@ -1,84 +1,179 @@
-import React, { useState, useRef } from 'react';
+import React from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './CrearPreguntas.css';
+import { Plus } from "lucide-react";
+import { FaArrowLeft, FaBrain, FaEye, FaSave } from 'react-icons/fa';
 
 const CrearPreguntas = () => {
-  const [form, setForm] = useState({
-    titulo: '',
-    descripcion: '',
-    explicacion: '',
-    contenido: ''
-  });
-
-  const [fullScreen, setFullScreen] = useState(false);
-  const quillRef = useRef(null);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleContenidoChange = (value) => {
-    setForm(prev => ({ ...prev, contenido: value }));
-  };
-
-  const toggleFullScreen = () => {
-    setFullScreen(!fullScreen);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-    alert('Pregunta guardada! Revisa consola.');
-  };
+ 
 
   return (
-    <div className={`crear-pregunta-container ${fullScreen ? 'fullscreen' : ''}`}>
-      <h2 className="titulo">Crear Nueva Pregunta</h2>
+    <div className="fullscreen-container">
+      <header className="header">
+      <div className="container">
+        <div className="left-section">
+          <button
+            onClick={() => window.history.back()}
+            className="btn-outline btn-sm"
+            type="button"
+          >
+            <FaArrowLeft className="icon-left" />
+            Volver
+          </button>
 
-      <button type="button" onClick={toggleFullScreen} className="expand-button">
-        {fullScreen ? 'Minimizar Editor' : 'Maximizar Editor'}
-      </button>
+          <div className="title-group">
+            <FaBrain className="icon-brain" />
+            <h1 className="title">Editor de Preguntas</h1>
+          </div>
+        </div>
 
-      <form className="formulario" onSubmit={handleSubmit}>
-        <label>Título:
-          <input type="text" name="titulo" value={form.titulo} onChange={handleChange} required />
-        </label>
+        <div className="right-section">
+          <button
+            className="btn-outline btn-yellow"
+            type="button"
+          >
+            <FaEye className="icon-left" />
+          </button>
 
-        <label>Contenido con imágenes y texto:</label>
-        <ReactQuill
-          ref={quillRef}
-          theme="snow"
-          value={form.contenido}
-          onChange={handleContenidoChange}
-          modules={{
-            toolbar: [
-              [{ 'header': [1, 2, 3, false] }],
-              ['bold', 'italic', 'underline'],
-              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-              ['link', 'image'],
-              ['clean']
-            ]
-          }}
-          formats={[
-            'header', 'bold', 'italic', 'underline',
-            'list', 'bullet', 'link', 'image'
-          ]}
-          className="editor"
-        />
+          <button
+            className="btn-green"
+            type="button"
+          >
+            <FaSave className="icon-left" />
+            Guardar
+          </button>
+        </div>
+      </div>
+    </header>
+      <main className="container-main">
+          <div className="grid-container">
+            <div className="card">
+              <div className="card-header">
+                  <h2 className="text-primary">Información Básica</h2>
+                  <p className="text-muted">Configura los datos principales de la pregunta</p>
+              </div>
+            <div className="card-content space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="title">Título</label>
+                <input
+                  type="text"
+                  id="title"                  
+                  className="input"
+                  placeholder="Título del desafío"
+                />
+              </div>
 
-        <label>Descripción:
-          <textarea name="descripcion" value={form.descripcion} onChange={handleChange} />
-        </label>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label>Grupo de Edad</label>
+              <select
+                
+                className="input"
+              >
+                <option value="">Seleccionar</option>
+                <option value="3-6">3-6 años</option>
+                <option value="7-10">7-10 años</option>
+                <option value="11-14">11-14 años</option>
+                <option value="15-18">15-18 años</option>
+              </select>
+            </div>
 
-        <label>Explicación de la pregunta:
-          <textarea name="explicacion" value={form.explicacion} onChange={handleChange} />
-        </label>
+            <div className="space-y-2">
+              <label>Dificultad</label>
+              <select
+               
+                className="input"
+              >
+                <option value="">Seleccionar</option>
+                <option value="basico">Básico</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+              </select>
+            </div>
+          </div>
 
-        <button type="submit" className="boton">Guardar Pregunta</button>
-      </form>
+          <div className="space-y-2">
+            <label>Tipo de Pregunta</label>
+            <select
+              
+              className="input"
+            >
+              <option value="">Seleccionar</option>
+              <option value="secuencial">Secuencial</option>
+              <option value="algoritmica">Algorítmica</option>
+              <option value="logica">Lógica</option>
+              <option value="patron">Patrón</option>
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="description">Descripción</label>
+            <textarea
+              id="description"
+             
+              className="textarea"
+              placeholder="Describe el problema o desafío..."
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Contenido y Opciones */}
+      <div className="card">
+        <div className="card-header">
+          <h2 className="text-secondary">Contenido y Opciones</h2>
+          <p className="text-muted">Define el contenido interactivo y las respuestas</p>
+        </div>
+        <div className="card-content space-y-4">
+          <div className="space-y-2">
+            <label htmlFor="content">Contenido Interactivo</label>
+            <ReactQuill
+              id="content"
+
+              className="quill-editor font-mono"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label>Opciones de Respuesta</label>
+              <button  className="btn-ef">
+                <Plus className="icon-small" />
+                Agregar
+              </button>
+            </div>
+
+            
+          </div>
+
+          <div className="space-y-2">
+            <label>Respuesta Correcta</label>
+            <select
+              
+              className="input"
+            >
+              <option value="">Seleccionar respuesta correcta</option>
+              
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="explanation">Explicación</label>
+            <textarea
+              id="explanation"
+             
+              className="textarea"
+              placeholder="Explica la solución y el razonamiento..."
+            />
+          </div>
+        </div>
+      </div>
     </div>
+      </main>
+
+ </div>
+    
   );
 };
 

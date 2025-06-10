@@ -4,6 +4,7 @@ PHP 7.4.22
 npm 10.4.0
 composer 2.8.8
 xampp 3.3.0
+react 18.2.0
 
 Comandos de git:
 # Con este comando, sabrar en que rama te encuantra y tambien te mostrara la ramas que hayas creado localmente y remotamente 

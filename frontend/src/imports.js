@@ -13,11 +13,11 @@ import VerPreguntas from "./Preguntas/VerPreguntas/VerPreguntas";
 import VerUsuario from "./Administrador/VerUsuario/VerUsuario";
 import EditarUsuario from "./Administrador/EditarUsuario/EditarUsuario";
 import CrearUsuario from "./Administrador/CrearUsuario/CrearUsuario";
-import VistaEstudiante from "./Vistas/VistaEstudiante";
 import VistaAdministrador from "./Vistas/VistaAdministrador";
 import VistaProfesor from "./Vistas/VistaProfesor";
+import GestionUsuario from "./Administrador/GestionUsuario/GestionUsuario";
 export {
     Home,Header, Router, Routes, Route, Navigate,Footer,React,Ayuda,Niveles,ListaPreguntas,CrearPreguntas,
-    EditarPreguntas,VerPreguntas,VerUsuario,EditarUsuario,CrearUsuario,VistaAdministrador,VistaEstudiante,
-    VistaProfesor
+    EditarPreguntas,VerPreguntas,VerUsuario,EditarUsuario,CrearUsuario,VistaAdministrador,
+    VistaProfesor,GestionUsuario
   };
