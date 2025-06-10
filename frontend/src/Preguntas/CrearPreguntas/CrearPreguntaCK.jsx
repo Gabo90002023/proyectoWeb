@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+
 import SummernoteEditor from './SummernoteEditor';
 import './CrearPreguntaCK.css';
 
@@ -18,12 +19,28 @@ const CrearPreguntaCK = () => {
     setFormulario((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleEditorChange = (campo) => (value) => {
-    setFormulario((prev) => ({ ...prev, [campo]: value }));
-  };
+  const handleInstruccionesChange = useCallback((value) => {
+    setFormulario((prev) => ({ ...prev, instrucciones: value }));
+  }, []);
+
+  const handlePreguntaChange = useCallback((value) => {
+    setFormulario((prev) => ({ ...prev, pregunta: value }));
+  }, []);
+
+  const handleExplicacionChange = useCallback((value) => {
+    setFormulario((prev) => ({ ...prev, explicacion: value }));
+  }, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const tieneCorrecta = formulario.respuestas.some((r) => r.correcta);
+    if (!tieneCorrecta) {
+      alert('Debes marcar al menos una respuesta como correcta.');
+      return;
+    }
+
     console.log(formulario);
     alert('Formulario enviado. Revisa la consola');
   };
@@ -99,12 +116,12 @@ const CrearPreguntaCK = () => {
 
         <div className="mb-3">
           <label>Instrucciones</label>
-          <SummernoteEditor value={formulario.instrucciones} onChange={handleEditorChange('instrucciones')} />
+          <SummernoteEditor value={formulario.instrucciones} onChange={handleInstruccionesChange} />
         </div>
 
         <div className="mb-3">
           <label>Pregunta</label>
-          <SummernoteEditor value={formulario.pregunta} onChange={handleEditorChange('pregunta')} />
+          <SummernoteEditor value={formulario.pregunta} onChange={handlePreguntaChange} />    
         </div>
 
         <div className="mb-3">
@@ -159,7 +176,7 @@ const CrearPreguntaCK = () => {
 
         <div className="mb-3">
           <label>Explicación de la respuesta</label>
-          <SummernoteEditor value={formulario.explicacion} onChange={handleEditorChange('explicacion')} />
+          <SummernoteEditor value={formulario.explicacion} onChange={handleExplicacionChange} />
         </div>
 
         <button type="submit" className="btn btn-primary btn-lg btn-block">

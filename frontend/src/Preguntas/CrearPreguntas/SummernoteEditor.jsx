@@ -7,7 +7,9 @@ const SummernoteEditor = ({ value, onChange }) => {
   useEffect(() => {
     const $ = window.$;
     const editor = editorRef.current;
-
+    
+    setTimeout(() => {
+    if (editor) {
     $(editor).summernote({
       height: 180,
       placeholder: 'Escribe tu contenido aquí...',
@@ -28,14 +30,31 @@ const SummernoteEditor = ({ value, onChange }) => {
           onChange(contents); // Actualiza el valor en el estado padre
         },
         onInit: function() {
+
+          // Corrige videos con parámetros extra
+            const videoDialog = $(editor).summernote('module', 'videoDialog');
+            const originalCreateVideoNode = videoDialog.createVideoNode;
+
+            videoDialog.createVideoNode = function (url) {
+              const match = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
+              if (match && match[1]) {
+                url = `https://www.youtube.com/embed/${match[1]}`;
+              }
+              return originalCreateVideoNode.call(this, url);
+            };
+
           $(editor).summernote('code', value || '');
         }
       }
     });
-
+  }
+  }, 100);
     return () => {
-      $(editor).summernote('destroy');
+      if (editor && $(editor).data('summernote')) {
+        $(editor).summernote('destroy');
+      }
     };
+
   }, []);
 
   return <textarea ref={editorRef} />;
