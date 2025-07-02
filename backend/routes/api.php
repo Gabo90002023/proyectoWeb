@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\crear_usuario;
+use App\Http\Controllers\autenticacion;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 // CREAR
 Route::post('/instanciaUsuario', [crear_usuario::class, 'registrar']);
+Route::post('/verificar', [autenticacion::class, 'verificarCredenciales']);
 
 
 

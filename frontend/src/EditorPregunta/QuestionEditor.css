@@ -1,0 +1,69 @@
+/* ---------- Contenedor principal ---------- */
+.question-editor-container {
+  min-height: 100vh;
+  background-color: #0f172a;           /* slate-900 */
+  color: #f1f5f9;                      /* slate-100 */
+}
+
+/* ---------- Encabezado ---------- */
+.question-editor-header {
+  background-color: #1e293b;           /* slate-800 */
+  border-bottom: 1px solid #334155;    /* slate-700 */
+  padding: 1rem;
+}
+
+.question-editor-header-inner {
+  max-width: 80rem;                    /* 7xl */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-editor-title {
+  font-size: 1.5rem;                   /* 2xl */
+  font-weight: 700;
+  color: #60a5fa;                      /* blue-400 */
+}
+
+.question-editor-header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------- Contenido principal ---------- */
+.question-editor-content {
+  max-width: 80rem;                    /* 7xl */
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.question-editor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;                         /* 6 */
+}
+
+@media (min-width: 1024px) {           /* lg */
+  .question-editor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Columna izquierda: pila con separación vertical */
+.question-editor-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;                         /* 6 */
+}
+
+/* ---------- Tarjeta de formulario ---------- */
+.question-editor-form {
+  background-color: #1e293b;           /* slate-800 */
+  border: 1px solid #334155;           /* slate-700 */
+  border-radius: 0.5rem;               /* rounded-lg */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;                           /* 4 */
+}
