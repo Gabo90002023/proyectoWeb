@@ -1,0 +1,124 @@
+.container.mt-4 {
+  max-width: 1000px; /* o 100%, o lo que necesites */
+  width: 100%;
+  margin: 0 auto; /* para centrar */
+}
+
+/* Modal general */
+.modal-content {
+  background-color: #0d1117 !important;
+  color: #c9d1d9 !important;
+  border: 1px solid #30363d;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Inputs en la modal */
+.modal-content input,
+.modal-content textarea {
+  background-color: #161b22 !important;
+  color: #ffffff !important;
+  border: 1px solid #30363d;
+}
+
+/* Texto de labels */
+.modal-content label {
+  color: #c9d1d9 !important;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Botón azul */
+.modal-footer .btn-primary {
+  background-color: #238636 !important;
+  border-color: #238636 !important;
+  color: #fff;
+}
+
+/* Botón de cerrar (X) */
+.modal-header .close {
+  color: #fff !important;
+  text-shadow: none;
+}
+
+
+/* Contenedor de cada respuesta */
+.respuesta-box {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #c9d1d9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Header con número y botón eliminar */
+.respuesta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.respuesta-header strong {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.btn-eliminar {
+  background-color: #d73a49;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+  background-color: #b32430;
+}
+
+/* Input de texto */
+.respuesta-box input[type="text"],
+.respuesta-box input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+/* Imagen previsualizada */
+.respuesta-box img {
+  max-width: 160px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #30363d;
+}
+
+/* Botón para marcar correcta */
+.btn-marcar {
+  background-color: transparent;
+  color: #58a6ff;
+  border: 1px solid #58a6ff;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.btn-marcar:hover {
+  background-color: #58a6ff;
+  color: #0d1117;
+}
+
+/* Si está marcada como correcta */
+.btn-marcar.correcta {
+  background-color: #2ea043;
+  color: white;
+  border-color: #2ea043;
+}

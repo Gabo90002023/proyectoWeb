@@ -6,20 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 
 class crear_usuario extends Controller
-{/*
+{
     public function registrar(Request $request)
     {
         try {
            // Crear un nuevo usuario
-           $usu = new $Usuario();
-           $usu->nombre = $request->input('nombres');
-           $usu->apellido_paterno = $request->input('apellidoPaterno');
-           $usu->apellido_materno = $request->input('apellidoMaterno');
-           $usu->correo_electronico = $request->input('correo');
+           $usu = new Usuario();
+           $usu->nombre = $request->input('nombre');
+           $usu->apellido = $request->input('apellido');
+           $usu->correo_electronico = $request->input('correo_electronico');
+           $usu->tipo_usuario = $request->input('userType');
            // Generar contraseña
-           $apellido_materno = strtolower($request->input('apellidoMaterno'));
-           $apellido_paterno = strtolower($request->input('apellidoPaterno'));
-           $contrasena = str_replace(' ', '', $apellido_paterno . '' . $apellido_materno);
+           $contrasena = $request->input('contraseña');
            $contrasena_morse = $this->encriptar(trim($contrasena));
            $usu->contraseña = $contrasena_morse;
            $usu->save();
@@ -55,5 +53,5 @@ class crear_usuario extends Controller
         
         return trim($morse_texto);
  }
-    */
+    
 }

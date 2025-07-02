@@ -12,10 +12,14 @@ const VistaAdministrador = () => {
       <div className="card-content">{content}</div>
     </div>
   );
+  const irGestion = () => {    
+      window.location.href = "/GesUsuario"
+   
+  }
   return (
-    <div className="dashboard">
-      <header className="header">
-        <div className="container">
+    <div className="dashboard-admi">
+      <header className="header-admi">
+        <div className="container-admi">
           <div className="user-info">
             <span className={`badge outline`}>Administrador</span>
             <button className="logout" >
@@ -25,7 +29,7 @@ const VistaAdministrador = () => {
           </div>
         </div>
       </header>
-      <main className="container">
+      <main className="container-admi2">
         <h2 className="welcome-title">
           Bienvenido, Administrador
         </h2>
@@ -38,7 +42,7 @@ const VistaAdministrador = () => {
         <>
           <p>Profesores: 25</p>
           <p>Estudiantes: 340</p>
-          <button className="btn blue">Gestionar</button>
+          <button className="btn blue" onClick={irGestion}>Gestionar</button>
         </>, 'blue')}
       {renderCard(<BarChart3 />, 'Estadísticas', 'Métricas de la plataforma',
         <>

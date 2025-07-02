@@ -13,10 +13,9 @@ use HasFactory;
 
     protected $fillable =[
         "nombre",
-        "apellido_paterno",
-        "apellido_materno",
+        "apellido",
         "correo_electronico",
-        "area",
         "contraseña",
+        "tipo_usuario"
     ];
 }

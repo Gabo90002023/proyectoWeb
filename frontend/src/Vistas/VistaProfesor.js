@@ -1,5 +1,6 @@
 import React from 'react';
 import { Plus, BookOpen, BarChart3, LogOut } from 'lucide-react';
+
 import './VistaProfesor.css'; 
 const VistaProfesor = () => {
   
@@ -13,12 +14,16 @@ const VistaProfesor = () => {
       <div className="card-content">{content}</div>
     </div>
   );
+  const newQuestion = () => {         
+      window.location.href = "/EditarPregunta"   
+  }
+  
 
   return (
 
-    <div className="dashboard">
-      <header className="header">
-        <div className="container">
+    <div className="dashboard-pro">
+      <header className="header-pro">
+        <div className="container-pro">
           <div className="user-info">
             <span className={`badge outline`}>Profesor</span>
             <button className="logout" >
@@ -28,7 +33,7 @@ const VistaProfesor = () => {
           </div>
         </div>
       </header>
-      <main className="container">
+      <main className="container-pro2">
         <h2 className="welcome-title">
           Bienvenido, profesor
         </h2>
@@ -38,7 +43,7 @@ const VistaProfesor = () => {
 
       <div className="grid">
       {renderCard(<Plus />, 'Crear Pregunta', 'Editor dinámico de preguntas',
-        <button  className="btn blue">Nuevo Desafío</button>, 'blue')}
+        <button  className="btn blue" onClick={newQuestion}>Nuevo Desafío</button>, 'blue')}
       {renderCard(<BookOpen />, 'Mis Preguntas', 'Gestionar contenido creado',
         <>
           <p>Publicadas: 12</p>
