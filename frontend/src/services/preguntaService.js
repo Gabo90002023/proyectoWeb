@@ -70,6 +70,7 @@ export const deletePregunta = async (id) => {
 const mapPreguntaFromBackend = (p) => ({
   id: p.id,
   title: p.titulo,
+  category: p.categoria, 
   instructions: p.instrucciones,
   question: p.pregunta,
   generalExplanation: p.explicacion_general,
@@ -90,6 +91,7 @@ const mapPreguntaFromBackend = (p) => ({
 
 const mapPreguntaToBackend = (p) => ({
   titulo: p.title,
+  categoria: p.category, 
   instrucciones: p.instructions,
   pregunta: p.question,
   explicacion_general: p.generalExplanation,

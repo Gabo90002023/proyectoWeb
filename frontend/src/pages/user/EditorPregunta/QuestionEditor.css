@@ -84,3 +84,20 @@
   flex-direction: column;
   gap: 1rem;                           /* 4 */
 }
+
+.select-category22 {
+  background-color: #334155;   /* bg-slate-700 */
+  border: 1px solid #475569;   /* border-slate-600 */
+  color: #f1f5f9;              /* text-slate-100 */
+  margin-top: 0.25rem;         /* mt-1 */
+  width: 100%;                 /* w-full */
+  padding: 0.5rem;             /* p-2 */
+  border-radius: 0.25rem;      /* rounded */
+  
+}
+
+.select-category22:focus {
+  outline: none;
+  border-color: #ffffff;   /* mantener blanco al enfocar */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); /* leve resplandor blanco */
+}
