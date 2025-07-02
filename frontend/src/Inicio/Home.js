@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import './Home.css'
 import { Users, BookOpen, Award } from "lucide-react"
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 
 const Home = () => {
   const [login, setLogin] = useState(true)
@@ -10,22 +11,64 @@ const Home = () => {
   const [apellido, setApellido] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorEmailValido, setErrorEmailValido] = useState("")
+  const [errorContraseñaValido, setErrorContraseñaValido] = useState("")
   const [errorNombre, setErrorNombre] = useState("")
   const [errorApellido, setErrorApellido] = useState("")
   const [errorCorreo, setErrorCorreo] = useState("")
   const [errorPassword, setErrorPassword] = useState("")
   const [errorImcompleto, setErrorIncompleto] = useState("")
   
+   const verContraseña = () => {
+    setShowPassword(!showPassword);
+  };
 
-
-  const handleAuth = () => {
-    if (userType === "Administrador") {      
-      window.location.href = "/VerAdmi"
-    }
-    else if (userType === "Profesor") {
-      window.location.href = "/VerProfesor"
-    }
+  const iniciarSesion = () => {
+  if (!email || !password) {
+    setErrorIncompleto("Por favor, complete todos los campos");
+    return;
   }
+
+  fetch("http://127.0.0.1:8000/api/verificar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      correo: email,
+      password: password,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.exists === false) {
+        setErrorEmailValido("Correo no registrado");
+      } else if (data.correcta === false) {
+        setErrorContraseñaValido("Contraseña incorrecta");
+      } else {
+        // Guardar datos en localStorage
+        localStorage.setItem("user", data.nombre);
+        localStorage.setItem("email", email);
+        localStorage.setItem("role", data.rol);
+        localStorage.setItem("id", data.id);
+
+        // Redirigir según el rol
+        if (data.rol === "Administrador") {
+          window.location.href = "/VerAdmi";
+        } else if (data.rol === "Profesor") {
+          window.location.href = "/VerProfesor";
+        } else {
+          window.location.href = "/"; 
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error en la autenticación:", error);
+      alert("No se pudo conectar al servidor");
+    });
+};
+
   
 
   const handleRegister = () => {
@@ -52,7 +95,7 @@ const Home = () => {
     setErrorPassword("")
     setErrorIncompleto("")
   }
-const handleSubmitRegistro = (e) => {
+  const handleSubmitRegistro = (e) => {
     e.preventDefault();
 
     if (!email || !password || !nombre || !apellido) {
@@ -129,7 +172,7 @@ const handleSubmitRegistro = (e) => {
         contraseña: password,
         userType: userType,
     }),
-})
+  })
 
     .then((response) => {
         if (!response.ok) {
@@ -146,7 +189,7 @@ const handleSubmitRegistro = (e) => {
         console.error("Error de red o registro:", error);
         alert("No se pudo registrar el usuario");
     });
-};
+  };
 
   return (
     <div className="main-container">
@@ -186,16 +229,22 @@ const handleSubmitRegistro = (e) => {
                 onChange={(e) => setEmail(e.target.value)} 
                 placeholder="tu@email.com" 
               />
+              {errorEmailValido && <p className="error">{errorEmailValido}</p>}
 
               <label>Contraseña</label>
               <input 
-                type="password" 
+                type={showPassword ? 'text' : 'password'} 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 placeholder="••••••••" 
               />
+              <div className="verContra" type="button" onClick={verContraseña}>
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </div>
+              {errorContraseñaValido && <p className="error">{errorContraseñaValido}</p>}
+              {errorImcompleto && <p className="error2">{errorImcompleto}</p>}                                                
 
-              <button onClick={handleAuth}>Iniciar Sesión</button>
+              <button onClick={iniciarSesion}>Iniciar Sesión</button>
 
               <p className="switch-auth">
                 ¿No tienes cuenta?
@@ -263,11 +312,14 @@ const handleSubmitRegistro = (e) => {
           {errorCorreo && <p className="error2">{errorCorreo}</p>}
           <label>Contraseña</label>
           <input 
-            type="password" 
+            type={showPassword ? 'text' : 'password'} 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             placeholder="••••••••" 
           />
+          <div className="verContra2" type="button" onClick={verContraseña}>
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+          </div>
           {errorPassword && <p className="error2">{errorPassword}</p>}
           {errorImcompleto && <p className="error2">{errorImcompleto}</p>}                                                
 
@@ -281,6 +333,7 @@ const handleSubmitRegistro = (e) => {
       )}
     </div>
   )
+
 }
 
 export default Home

@@ -2,7 +2,7 @@ import './App.css';
 import { 
   Home, Header, Footer, Ayuda, Niveles, ListaPreguntas,
   VerPreguntas, VerUsuario, EditarUsuario, CrearUsuario,VistaAdministrador,
-   VistaProfesor,GestionUsuario,Editor,ElementoPanel,Secuencia
+   VistaProfesor,GestionUsuario
   
 } from './imports';
 
@@ -19,9 +19,7 @@ function App() {
         <Route path='/Niveles' element={<Niveles />} />
         <Route path='/ListaPreguntas' element={<ListaPreguntas />} />
         <Route path='/Ayuda' element={<Ayuda />} />
-        <Route path='/EditarPregunta' element={<Editor />} />
-          <Route path='/EditarPanel' element={<ElementoPanel />} />
-          <Route path='/Secuencia' element={<Secuencia />} />
+        
         <Route path='/ViewPreguntas' element={<VerPreguntas />} />
         <Route path='/ViewUsuario' element={<VerUsuario />} /> 
         <Route path='/EditarUsuario' element={<EditarUsuario />} />

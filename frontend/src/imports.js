@@ -14,12 +14,10 @@ import CrearUsuario from "./Administrador/CrearUsuario/CrearUsuario";
 import VistaAdministrador from "./Vistas/VistaAdministrador";
 import VistaProfesor from "./Vistas/VistaProfesor";
 import GestionUsuario from "./Administrador/GestionUsuario/GestionUsuario";
-import Editor from "./Preguntas/EditarPregunta/Editor"; 
-import ElementoPanel from "./Preguntas/EditarPregunta/ElementoPanel";
-import Secuencia from "./Preguntas/EditarPregunta/Secuencia";
+
 
 export {
     Home,Header, Router, Routes, Route, Navigate,Footer,React,Ayuda,Niveles,ListaPreguntas,
     VerPreguntas,VerUsuario,EditarUsuario,CrearUsuario,VistaAdministrador,
-    VistaProfesor,GestionUsuario,Editor,ElementoPanel,Secuencia
-  };
+    VistaProfesor,GestionUsuario
+  }
