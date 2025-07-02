@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
     "@remirror/pm": "^3.0.1",
     "@remirror/react": "^3.0.2",
     "@remirror/styles": "^3.0.0",

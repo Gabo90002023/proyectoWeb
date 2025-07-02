@@ -14,10 +14,8 @@ const VistaProfesor = () => {
       <div className="card-content">{content}</div>
     </div>
   );
-  const newQuestion = () => {
-         
-      window.location.href = "/CrearPregunta"
-   
+  const newQuestion = () => {         
+      window.location.href = "/EditarPregunta"   
   }
   
 
