@@ -39,6 +39,7 @@ class PreguntaController extends Controller
         try {
             $pregunta = new Pregunta($request->only([
                 'titulo',
+                'categoria',
                 'instrucciones',
                 'pregunta',
                 'explicacion_general',
@@ -115,6 +116,7 @@ class PreguntaController extends Controller
             // 1. Actualizar campos de la pregunta
             $pregunta->update($request->only([
                 'titulo',
+                'categoria',
                 'instrucciones',
                 'pregunta',
                 'explicacion_general',

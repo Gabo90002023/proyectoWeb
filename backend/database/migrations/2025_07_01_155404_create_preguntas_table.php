@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('titulo');
+            $table->string('categoria')->nullable();
             $table->text('instrucciones')->nullable();
             $table->text('pregunta')->nullable();
             $table->text('explicacion_general')->nullable();

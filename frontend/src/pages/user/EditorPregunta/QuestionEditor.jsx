@@ -14,6 +14,7 @@ import "./QuestionEditor.css"
 
 export default function QuestionEditor({ question, onSave, onCancel }) {
   const [title, setTitle] = useState(question?.title || "")
+  const [category, setCategory] = useState(question?.category || "")
   const [instructions, setInstructions] = useState(question?.instructions || "")
   const [questionText, setQuestionText] = useState(question?.question || "")
   const [generalExplanation, setGeneralExplanation] = useState(question?.generalExplanation || "")
@@ -115,6 +116,7 @@ export default function QuestionEditor({ question, onSave, onCancel }) {
     const data = {
       id: question?.id,
       title,
+      category,
       instructions,
       question: questionText,
       generalExplanation,
@@ -172,6 +174,27 @@ export default function QuestionEditor({ question, onSave, onCancel }) {
                     placeholder="Ordena la secuencia de cocinar un huevo"
                     className="bg-slate-700 border-slate-600 text-slate-100 placeholder:text-slate-400 mt-1"
                   />
+                </div>
+
+                {/* Categoria edad*/}
+                <div>
+                  <Label htmlFor="category" className="text-slate-200 text-sm">
+                    Categoria de edad
+                  </Label>
+                  <select
+                    id="category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="select-category22"
+                  >
+                    <option value="">Selecciona un grupo...</option>
+                    <option value="Kits">Kits (edad 6-8)</option>
+                    <option value="Ruedas">Ruedas (8-10 años)</option>
+                    <option value="Benjamines">Benjamines (edad 10-12)</option>
+                    <option value="Cadetes">Cadetes (12-14 años)</option>
+                    <option value="Juniors">Juniors (edades 14-16)</option>
+                    <option value="Personas mayores">Personas mayores (16 a 18 años)</option>
+                  </select>
                 </div>
 
                 {/* Instrucciones */}
