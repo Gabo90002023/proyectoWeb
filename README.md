@@ -21,52 +21,92 @@ xampp 3.3.0
 react 18.2.0  
 
 # INSTALACION DEL PROYECTO
- 1 Crear un archivo con el nombre "proyectoWeb"  
+ 1 Crear una nueva caperta
 
- 2 Abra el simbolo del sistema y coloque "cd" espacio la ruta del archivo creado, puede arrastra e; archivo con el cuzor hacia el simbolo, haga ENTER  
+ 2 Dentro de la caperta abrir una terminal de comandos
 
- 3 Estando en la ruta coloque el siguiente comando:  
+ 3 Estando en la terminal y en la ruta de la carpeta coloque el siguiente comando:  
 
     git clone https://github.com/Gabo90002023/proyectoWeb.git  
 
-4 Abra una terminal y ejecute  
+4 Luego direjase en la ruta del proyecto ya clonado del githud con el comando:
+  
+    cd proyectoWeb 
+    
+5 Abrir el proyecto con editor de codigo VScode con el siguiente comando:
 
-    cd frontend  
+    code .
+    
+6 Una vez dentro del editor de codigo VScode abrir dos terminales de VScode para la instalacion de las dependecias
+  del frontend y backend
 
-5 Ejecute  
+7 Instalar las dependecias de frontend:
+  Ve a la ruta del frontend
 
-    npm install  
+    cd frontend
+    
+  Instale las dependencias del frontend con el siguiente comando:
 
-6 Ejecute  
+    npm install
 
-    cd ..  
+8 Instalar las dependecias de backend:
+  Ve a la ruta del backend
 
-7 Ejecute  
+    cd backend
+    
+  Instale las dependencias del backend con el siguiente comando:
 
-    cd backend  
-
-8 Ejecute  
-
-    composer install  
-
-# INSTALACION DE LAS DEPENDENCIAS  
-1 Descargar he instalar Git a traves del siguiente link: https://git-scm.com/downloads  
-
-2 Descargar el node js para usar comando npm a traves: https://nodejs.org/en/download  
-
-3 Descargar Postgres para la conexion servidor y base de datos: https://www.postgresql.org/download/  
-
-4 Como ID descargar VScode: https://code.visualstudio.com/download  
+    composer install
 
 
 # EJECUCION DEL PROYECTO
-## Ejecucion del Frontend
-npm install  
+## Ejecucion del Frontend 
 
-npm run dev
+   npm run dev
+
+## Para la base de datos 
+
+  Crea una base de datos en el gestor de base datos postgresql (Ejm: pgAdmin 4)
 
 ## Ejecuion del Backend
-php artisan serve
+ - Cambiar el nombre de archivo ".env.example" a ".env"
+ - Configurarar los paramentros ".env" una vez cambiado de nombre
+   
+            DB_CONNECTION = (su coneccion)
+            DB_HOST = (su local host)
+            DB_PORT = (su puerto)
+            DB_DATABASE = (el nombre de su base de datos)
+            DB_USERNAME = (su usuario de la base de datos)
+            DB_PASSWORD = (su contraseña)
+   
+ - Ejecutar el comando para la migracion de las tablas en la base de datos
+   
+     php artisan migrate
+   
+ - Limpia la caché del framework con siguientes comandos
+   
+    php artisan route:clear
+    php artisan config:clear
+    php artisan cache:clear
+    php artisan view:clear
+   
+- Ejecucion del servidor del backend
+   
+    php artisan server
+
+## Para crar un usuario Admin y un usuario normal por via consola ejecute el comando:
+
+   php artisan db:seed --class=UserSeeder 
+
+   - Credeciales del usuario Admin:
+     
+       email = admin@demo.com
+       password = admin123
+     
+   - Credenciales del usuario normal:
+     
+       email = profesor@demo.com
+       password = profesor123
 
 
 # COMANDOS PARA EL SERVIDOR
