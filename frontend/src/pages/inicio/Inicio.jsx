@@ -99,7 +99,6 @@ const Inicio = () => {
     <div className="main-container">
       <main className="main">
         <div className="main-grid">
-          {/* Sección izquierda: presentación */}
           <div className="hero">
             <p className="hero-title">
               Plataforma de <span className="blue">Pensamiento</span><br />
@@ -109,7 +108,7 @@ const Inicio = () => {
               Desarrolla habilidades de programación y lógica computacional a través de desafíos interactivos.
             </p>
             <div className="hero-features">
-              <div><Users className="icon green" /> 3 tipos de usuarios</div>
+              <div><Users className="icon green" /> 2 tipos de usuarios</div>
               <div><BookOpen className="icon green" /> Editor dinámico</div>
               <div><Award className="icon green" /> Múltiples niveles</div>
             </div>
