@@ -62,7 +62,7 @@ react 18.2.0
 # EJECUCION DEL PROYECTO
 ## Ejecucion del Frontend 
 
-   npm run dev
+    npm run dev
 
 ## Para la base de datos 
 
@@ -79,24 +79,24 @@ react 18.2.0
             DB_USERNAME = (su usuario de la base de datos)
             DB_PASSWORD = (su contraseña)
    
- - Ejecutar el comando para la migracion de las tablas en la base de datos
-   
-     php artisan migrate
-   
- - Limpia la caché del framework con siguientes comandos
+Ejecutar el comando para la migracion de las tablas en la base de datos
+
+    php artisan migrate
+
+Limpia la caché del framework con siguientes comandos
    
     php artisan route:clear
     php artisan config:clear
     php artisan cache:clear
     php artisan view:clear
    
-- Ejecucion del servidor del backend
+Ejecucion del servidor del backend
    
     php artisan server
 
 ## Para crar un usuario Admin y un usuario normal por via consola ejecute el comando:
-
-   php artisan db:seed --class=UserSeeder 
+   
+    php artisan db:seed --class=UserSeeder 
 
    - Credeciales del usuario Admin:
      
