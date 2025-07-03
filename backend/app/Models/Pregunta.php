@@ -11,6 +11,7 @@ class Pregunta extends Model
 
     protected $fillable = [
         'titulo',
+        'categoria',
         'instrucciones',
         'pregunta',
         'explicacion_general',
