@@ -1,43 +1,68 @@
 # PROYECTO WEB
 
 # INSTALACION DE LAS DEPENDENCIAS
-1 Descargar he instalar Git a traves del siguiente link: https://git-scm.com/downloads
-2 Descargar el node js para usar comando npm a traves: https://nodejs.org/en/download
-3 Descargar Postgres para la conexion servidor y base de datos: https://www.postgresql.org/download/
-4 Como ID descargar VScode: https://code.visualstudio.com/download
+1 Descargar he instalar Git a traves del siguiente link: https://git-scm.com/downloads  
+
+2 Descargar el node js para usar comando npm a traves: https://nodejs.org/en/download  
+
+3 Descargar Postgres para la conexion servidor y base de datos: https://www.postgresql.org/download/  
+
+4 Como ID descargar VScode: https://code.visualstudio.com/download  
 
 # REQUISITOS PARA EL SISTEMA 
-PHP 7.4.22
-npm 10.4.0
-composer 2.8.8
-xampp 3.3.0
-react 18.2.0
+PHP 7.4.22  
+
+npm 10.4.0  
+
+composer 2.8.8  
+
+xampp 3.3.0  
+
+react 18.2.0  
 
 # INSTALACION DEL PROYECTO
- 1 Crear un archivo con el nombre "proyectoWeb"
- 2 Abra el simbolo del sistema y coloque "cd" espacio la ruta del archivo creado, puede arrastra e; archivo con el cuzor hacia el simbolo, haga ENTER
- 3 Estando en la ruta coloque el siguiente comando:
-    git clone https://github.com/Gabo90002023/proyectoWeb.git
-4 Abra una terminal y ejecute
-    cd frontend
-5 Ejecute 
-    npm install
-6 Ejecute 
-    cd ..
-7 Ejecute 
-    cd backend 
-8 Ejecute 
-    composer install
+ 1 Crear un archivo con el nombre "proyectoWeb"  
 
-# INSTALACION DE LAS DEPENDENCIAS
-1 Descargar he instalar Git a traves del siguiente link: https://git-scm.com/downloads
-2 Descargar el node js para usar comando npm a traves: https://nodejs.org/en/download
-3 Descargar Postgres para la conexion servidor y base de datos: https://www.postgresql.org/download/
-4 Como ID descargar VScode: https://code.visualstudio.com/download
+ 2 Abra el simbolo del sistema y coloque "cd" espacio la ruta del archivo creado, puede arrastra e; archivo con el cuzor hacia el simbolo, haga ENTER  
+
+ 3 Estando en la ruta coloque el siguiente comando:  
+
+    git clone https://github.com/Gabo90002023/proyectoWeb.git  
+
+4 Abra una terminal y ejecute  
+
+    cd frontend  
+
+5 Ejecute  
+
+    npm install  
+
+6 Ejecute  
+
+    cd ..  
+
+7 Ejecute  
+
+    cd backend  
+
+8 Ejecute  
+
+    composer install  
+
+# INSTALACION DE LAS DEPENDENCIAS  
+1 Descargar he instalar Git a traves del siguiente link: https://git-scm.com/downloads  
+
+2 Descargar el node js para usar comando npm a traves: https://nodejs.org/en/download  
+
+3 Descargar Postgres para la conexion servidor y base de datos: https://www.postgresql.org/download/  
+
+4 Como ID descargar VScode: https://code.visualstudio.com/download  
+
 
 # EJECUCION DEL PROYECTO
 ## Ejecucion del Frontend
-npm install
+npm install  
+
 npm run dev
 
 ## Ejecuion del Backend
