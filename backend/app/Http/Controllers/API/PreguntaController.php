@@ -18,8 +18,10 @@ class PreguntaController extends Controller
     public function index()
     {
         $preguntas = Pregunta::with(['items', 'secuencias.items'])
-            ->where('user_id', Auth::id()) // 🔐 Solo las del usuario logueado
+            ->where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
             ->get();
+
         return response()->json($preguntas);
     }
 

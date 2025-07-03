@@ -39,11 +39,31 @@ export default function QuestionList({ questions, onEdit, onPlay, onDelete, onCr
   )
 }
 
+function formatCategoria(categoria) {
+  const categorias = {
+    "Kits": "Kits (6-8 años)",
+    "Ruedas": "Ruedas (8-10 años)",
+    "Benjamines": "Benjamines (10-12 años)",
+    "Cadetes": "Cadetes (12-14 años)",
+    "Juniors": "Juniors (14-16 años)",
+    "Personas mayores": "Personas mayores (16-18 años)"
+  };
+
+  return categorias[categoria] || categoria;
+}
+
 function QuestionCard({ question, onEdit, onPlay, onDelete }) {
   return (
     <Card className="question-card">
       <CardHeader>
         <CardTitle className="question-card-title">{question.title}</CardTitle>
+          {/* Mostrar categoría */}
+          {question.category && (
+            <p className="text-xs text-sky-400 font-semibold mt-1">
+              Categoría: {formatCategoria(question.category)}
+            </p>
+          )}
+
           <div
             className="question-video-wrapper text-sm text-slate-300 line-clamp-2"
             dangerouslySetInnerHTML={{ __html: question.instructions }}
